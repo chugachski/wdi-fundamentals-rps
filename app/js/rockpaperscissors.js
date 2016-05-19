@@ -40,44 +40,18 @@ function getWinner(playerMove,computerMove) {
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    if (playerMove === 'rock')
-        switch (playerMove) {
-            case: (computerMove === 'rock')
-                winner = 'tie';
-                break;
-            case: (computerMove === 'paper')
-                winner = 'computer';
-                break;
-            case: (computerMove == 'scissors')
-                winner = 'player';
-                break;
-        }
-    else if (playerMove === 'paper')
-        switch (playerMove) {
-            case: (computerMove === 'rock')
-                winner = 'player';
-                break;
-            case: (computerMove === 'paper')
-                winner = 'tie';
-                break;
-            case: (computerMove == 'scissors')
-                winner = 'computer';
-                break;
-        }
-    else
-        switch (playerMove) {
-            case: (computerMove === 'rock')
-                winner = 'computer';
-                break;
-            case: (computerMove === 'paper')
-                winner = 'player';
-                break;
-            case: (computerMove == 'scissors')
-                winner = 'tie';
-                break;
-        }
-        return winner;
-    }   
+  function getWinner(playerMove, computerMove) {
+    if (playerMove == computerMove) {
+        winner = 'tie';
+    } else if (playerMove == 'rock') {
+        (computerMove == 'paper') winner = 'computer' : winner = 'player';
+    } else if (playerMove == 'paper') {
+        (computerMove == 'scissors') ? winner = 'computer' : winner = 'player';
+    } else {
+        (computerMove == 'rock') ? winner = 'computer' : winner = 'player';
+    }
+    return winner;
+}
 
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
