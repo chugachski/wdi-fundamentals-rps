@@ -1,6 +1,3 @@
-////////////////////////////////////////////////
-/*   Provided Code - Please Don't Edit   */
-////////////////////////////////////////////////
 'use strict';
 
 function getInput() {
@@ -17,18 +14,13 @@ function randomPlay() {
         return "scissors";
     }
 }
-////////////////////////////////////////////////
-/*           Write Your Code Below            */
-////////////////////////////////////////////////
 
-// Write an expression that operates on a variable called `move`
 // If a `move` has a value, your expression should evaluate to that value.
 // However, if `move` is not specified / is null, your expression should equal `getInput()`.
 function getPlayerMove(move) {
     return move || getInput();
 }
 
-// Write an expression that operates on a variable called `move`
 // If a `move` has a value, your expression should evaluate to that value.
 // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
 function getComputerMove(move) {
@@ -36,19 +28,17 @@ function getComputerMove(move) {
 }
     
 // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
-// Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
-// The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
 function getWinner(playerMove, computerMove) {
     console.log(`Player chose ${playerMove} and Computer chose ${computerMove}`);
     var winner;
-    if (playerMove == computerMove) {
+    if (playerMove === computerMove) {
         winner = 'tie';
-    } else if (playerMove == 'rock') {
-        (computerMove == 'paper') ? winner = 'computer' : winner = 'player';
-    } else if (playerMove == 'paper') {
-        (computerMove == 'scissors') ? winner = 'computer' : winner = 'player';
+    } else if (playerMove === 'rock') {
+        (computerMove === 'paper') ? winner = 'computer' : winner = 'player';
+    } else if (playerMove === 'paper') {
+        (computerMove === 'scissors') ? winner = 'computer' : winner = 'player';
     } else {
-        (computerMove == 'rock') ? winner = 'computer' : winner = 'player';
+        (computerMove === 'rock') ? winner = 'computer' : winner = 'player';
     }
     return winner;
 }
@@ -58,11 +48,12 @@ function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    var winner = '';
 
     while(playerWins < 5 && computerWins < 5) {
         console.log(`The score is currently Player: ${playerWins} to Computer: ${computerWins}\n`);
-        winner = getWinner(getPlayerMove(), getComputerMove());
+        var winner = getWinner(getPlayerMove(), getComputerMove());
+        // why doesn't calling getPlayerMove w/o an arg generate an error?
+        // also, why not call getInput and randomPlay from here directly?
         if (winner === 'player') {
             playerWins += 1;
         } else if (winner === 'computer') {
@@ -81,5 +72,4 @@ function playToFive() {
     return [playerWins, computerWins];
 }
 
-
-
+playToFive();
